@@ -9,16 +9,6 @@
         <!--</encoder>-->
     <!--</appender>-->
 
-    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
-        <encoder>
-            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{5} - %msg%n</pattern>
-        </encoder>
-    </appender>
-
-    <logger name="org.owasp.dependencytrack" level="INFO" additivity="false">
-        <appender-ref ref="STDOUT" />
-    </logger>
-
     <logger name="org.springframework" level="OFF"/>
     <logger name="org.apache.catalina.startup.DigesterFactory" level="OFF"/>
 

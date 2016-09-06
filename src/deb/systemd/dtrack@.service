@@ -1,0 +1,18 @@
+[Unit]
+Description=Dependency Track instance
+After=syslog.target
+After=network.target
+ConditionPathExists=/opt/dtrack/dtrack.war
+
+[Service]
+Type=simple
+User=dtrack
+Group=dtrack
+EnvironmentFile=-/etc/gumtree/env.d/%p_%i
+ExecStart=/usr/lib/jvm/java-1.8.0-openjdk-amd64/bin/java $JAVA_OPTS -jar /opt/dtrack/dtrack.war
+TimeoutStartSec=118
+TimeoutStopSec=59
+
+[Install]
+WantedBy=multi-user.target
+DefaultInstance=1

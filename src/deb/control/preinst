@@ -1,0 +1,22 @@
+#!/bin/sh
+
+set -e
+. /usr/share/debconf/confmodule
+
+if [ -n "$DEBUG" ]; then
+    echo "now debugging $0 $@"
+    set -x
+fi
+
+case "$1" in
+    install)
+        # Add dtrack user and group if necessary
+        if ! getent passwd dtrack >/dev/null; then
+            echo 'Adding system-user for dtrack' 1>&2
+            adduser --system --group --quiet --home /var/lib/dtrack \
+                --disabled-login dtrack
+        fi
+    ;;
+esac
+
+# vim:ft=sh:ts=4:sw=4:et:

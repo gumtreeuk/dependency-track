@@ -1,0 +1,9 @@
+Package: [[deb.package]]
+Version: [[version]]
+Section: misc
+Priority: optional
+Architecture: all
+Distribution: gt-app
+Description: [[description]]
+Maintainer: [[deb.maintainer]]
+Depends: java-runtime-headless
